@@ -26,6 +26,7 @@ class FirebaseFacebookAuthenticator implements Authenticator {
             .signInWithCredential(FacebookAuthProvider.getCredential(
                 accessToken: result.accessToken.token))
             .then((result) => FirebaseProvider.convert(result.user))
+            .then((user) => Identity.of(context).user = user)
             .catchError(Identity.of(context).error);
       case FacebookLoginStatus.cancelledByUser:
       case FacebookLoginStatus.error:
