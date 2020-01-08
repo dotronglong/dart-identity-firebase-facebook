@@ -1,0 +1,25 @@
+name: identity_firebase_facebook
+description: Facebook SSO by Firebase for Identity package
+version: 0.0.1
+author: Long Do <me@dotronglong.com>
+homepage: https://github.com/dotronglong/dart-identity-firebase-facebook
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sso: ^0.0.1
+  identity: ^0.0.1
+  identity_firebase: ^0.0.2
+  firebase_auth: ^0.15.3
+  flutter_facebook_login: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - images/facebook.png
