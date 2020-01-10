@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:identity/identity.dart';
 import 'package:identity_firebase/identity_firebase.dart';
@@ -30,8 +29,7 @@ class FirebaseFacebookAuthenticator implements Authenticator {
             .catchError(Identity.of(context).error);
       case FacebookLoginStatus.cancelledByUser:
       case FacebookLoginStatus.error:
-        Identity.of(context).error(PlatformException(
-            code: '000.000.000', message: result.errorMessage));
+        Identity.of(context).error(result.errorMessage);
         break;
     }
   }
