@@ -18,7 +18,7 @@ class FirebaseFacebookAuthenticator implements Authenticator {
   @override
   Future<void> authenticate(BuildContext context, [Map parameters]) async {
     final facebookLogin = FacebookLogin();
-    final result = await facebookLogin.logInWithReadPermissions(['email']);
+    final result = await facebookLogin.logIn(['email']);
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
         return FirebaseAuth.instance

@@ -1,3 +1,7 @@
+## [0.1.1] - v0.1.1
+
+* Upgrade `flutter_facebook_login`
+
 ## [0.1.0] - v0.1.0
 
 * Upgrade `identity_firebase`
