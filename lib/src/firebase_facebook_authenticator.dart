@@ -5,7 +5,7 @@ import 'package:identity/identity.dart';
 import 'package:identity_firebase/identity_firebase.dart';
 import 'package:sso/sso.dart';
 
-class FirebaseFacebookAuthenticator implements Authenticator {
+class FirebaseFacebookAuthenticator with WillNotify implements Authenticator {
   @override
   WidgetBuilder get action => (context) => ActionButton(
       onPressed: () => authenticate(context),
@@ -21,6 +21,7 @@ class FirebaseFacebookAuthenticator implements Authenticator {
     final result = await facebookLogin.logIn(['email']);
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
+        notify(context, "Processing ...");
         return FirebaseAuth.instance
             .signInWithCredential(FacebookAuthProvider.getCredential(
                 accessToken: result.accessToken.token))

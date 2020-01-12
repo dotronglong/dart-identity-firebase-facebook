@@ -1,3 +1,7 @@
+## [0.1.2] - v0.1.2
+
+* Add message when processing
+
 ## [0.1.1] - v0.1.1
 
 * Upgrade `flutter_facebook_login`
