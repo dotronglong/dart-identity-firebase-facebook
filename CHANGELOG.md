@@ -1,3 +1,7 @@
+## [0.2.0] - v0.2.0
+
+* Upgrade `identity_firebase`
+
 ## [0.1.2] - v0.1.2
 
 * Add message when processing

@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:identity/identity.dart';
-import 'package:identity_firebase/identity_firebase.dart';
 import 'package:sso/sso.dart';
 
-class FirebaseFacebookAuthenticator with WillNotify implements Authenticator {
+class FirebaseFacebookAuthenticator
+    with WillNotify, WillConvertUser
+    implements Authenticator {
   @override
   WidgetBuilder get action => (context) => ActionButton(
       onPressed: () => authenticate(context),
@@ -25,7 +26,7 @@ class FirebaseFacebookAuthenticator with WillNotify implements Authenticator {
         return FirebaseAuth.instance
             .signInWithCredential(FacebookAuthProvider.getCredential(
                 accessToken: result.accessToken.token))
-            .then((result) => FirebaseProvider.convert(result.user))
+            .then((result) => convert(result.user))
             .then((user) => Identity.of(context).user = user)
             .catchError(Identity.of(context).error);
       case FacebookLoginStatus.cancelledByUser:
